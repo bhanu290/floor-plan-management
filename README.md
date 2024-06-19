@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Intelligent Floor Plan Management System is designed to provide a seamless workspace experience by allowing administrators to manage and optimize floor plans effectively. This system includes features for robust user authentication, conflict resolution, version control, offline synchronization, meeting room optimization, and comprehensive error handling. This document provides a detailed case study of the system's implementation, including code snippets, data structures, algorithms, and time/space complexity analysis.
+The Intelligent Floor Plan Management System is designed to provide a seamless workspace experience by allowing administrators to manage and optimize floor plans effectively. This system includes features for robust user authentication, version control,  meeting room optimization, and  error handling. This document provides a detailed case study of the system's implementation, including code snippets, data structures, algorithms, and time/space complexity analysis.
 
 ## 1. Authentication
 
@@ -65,36 +65,11 @@ module.exports = authController;
 - Time Complexity: O(1) for token generation and user retrieval.
 - Space Complexity: O(1) for token storage.
 
-## 2. Cost Estimation - Time and Space
+## 2. Cost Estimation 
 
 #### Data Structures:
 - **MongoDB:** Used for database storage due to its flexibility and scalability.
 
-### Code Snippet
-
-#### `utils/conflictResolution.js`
-
-```javascript
-exports.resolveConflicts = (existingLayout, newLayout) => {
-  const resolvedLayout = { ...existingLayout };
-
-  for (const [key, value] of Object.entries(newLayout)) {
-    if (existingLayout[key]) {
-      if (value.timestamp > existingLayout[key].timestamp) {
-        resolvedLayout[key] = value;
-      }
-    } else {
-      resolvedLayout[key] = value;
-    }
-  }
-
-  return resolvedLayout;
-};
-```
-
-### Time and Space Complexity
-- Time Complexity: O(n) where n is the number of elements in the layout.
-- Space Complexity: O(n) for storing the resolved layout.
 
 ## 3. Handling System Failure Cases
 
@@ -179,4 +154,4 @@ exports.suggestMeetingRoom = async (requirements) => {
 ```
 
 ## Conclusion
-This comprehensive case study provides a detailed overview of the Intelligent Floor Plan Management System, including robust user authentication, conflict resolution, version control, offline synchronization, meeting room optimization, and comprehensive error handling. The implementation uses efficient algorithms and data structures to ensure optimal time and space complexity, while also considering important trade-offs in system design.
+This comprehensive case study provides a detailed overview of the Intelligent Floor Plan Management System, including robust user authentication, version control, meeting room optimization, and  error handling. The implementation uses efficient algorithms and data structures to ensure optimal time and space complexity, while also considering important trade-offs in system design.
